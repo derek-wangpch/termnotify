@@ -1,25 +1,29 @@
-usernotification
+termnotify
 ================
-Demonstrate how to post NSUserNotification from CLI(without Application Bundle) on OS X 10.8.
+Demonstrate how to post NStermnotify from CLI(without Application Bundle) on OS X 10.8.
 
 Install
 -------
-Clone repository and install `/usr/local/bin/usernotification`
+Clone repository and install `/usr/local/bin/termnotify`
 
-	git clone https://github.com/norio-nomura/usernotification.git
-	cd usernotification
+	git clone https://github.com/derek-wangpch/termnotify.git
+	cd termnotify
 	sudo xcrun xcodebuild clean install DSTROOT=/
+
+Or use
+
+    cc -framework foundation main.c -o termnotify
 
 Usage
 -----
 
-	Usage: usernotification [-identifier <identifier>] [-title <title>] [-subtitle <subtitle>] [-informativeText <text>]
+	Usage: termnotify  [--title <title>] [--subtitle <subtitle>] [--message <text>] [--identifier <identifier>]
 	
 	Options:
-	    -identifier NAME        some existing app identifier(default: com.apple.finder)
-	    -title TEXT             title text
-	    -subtitle TEXT          subtitle text
-	    -informativeText TEXT   informative text
+	   -i, --identifier NAME        some existing app identifier(default: com.apple.terminal)
+	   -t, --title TEXT             title text
+	   -s, --subtitle TEXT          subtitle text
+	   -i, --informativeText TEXT   informative text
 
 License
 -------
@@ -29,7 +33,7 @@ License
 	            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
 	                    Version 2, December 2004
 	
-	 Copyright (C) 2013 Norio Nomura
+	 Copyright (C) 2013 Derek Wang
 	
 	 Everyone is permitted to copy and distribute verbatim or modified
 	 copies of this license document, and changing it is allowed as long

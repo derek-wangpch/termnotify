@@ -1,13 +1,13 @@
 //
 //  main.m
-//  usernotification
+//  termnotify
 //
 //    (The WTFPL)
 //
 //    DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
 //    Version 2, December 2004
 //
-//    Copyright (C) 2013 Norio Nomura
+//    Copyright (C) 2013 Derek Wang
 //
 //    Everyone is permitted to copy and distribute verbatim or modified
 //    copies of this license document, and changing it is allowed as long
@@ -34,7 +34,7 @@ NSString *fakeBundleIdentifier = nil;
 - (NSString *)__bundleIdentifier
 {
     if (self == [NSBundle mainBundle]) {
-        return fakeBundleIdentifier ? fakeBundleIdentifier : @"com.apple.finder";
+        return fakeBundleIdentifier ? fakeBundleIdentifier : @"com.apple.terminal";
     } else {
         return [self __bundleIdentifier];
     }
@@ -66,6 +66,7 @@ BOOL installNSBundleHook()
 
 - (void)userNotificationCenter:(NSUserNotificationCenter *)center didDeliverNotification:(NSUserNotification *)notification
 {
+    printf("Notification delivered!\n");
     self.keepRunning = NO;
 }
 
@@ -74,35 +75,48 @@ BOOL installNSBundleHook()
 
 #pragma mark -
 
+void printHelp();
+
 int main(int argc, const char * argv[])
 {
     @autoreleasepool {
         if (installNSBundleHook()) {
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            
-            fakeBundleIdentifier = [defaults stringForKey:@"identifier"];
-            
+
+            (fakeBundleIdentifier = [defaults stringForKey:@"i"]) || (fakeBundleIdentifier = [defaults stringForKey:@"-identifier"]);
+
             NSUserNotificationCenter *nc = [NSUserNotificationCenter defaultUserNotificationCenter];
             NotificationCenterDelegate *ncDelegate = [[NotificationCenterDelegate alloc]init];
             ncDelegate.keepRunning = YES;
             nc.delegate = ncDelegate;
-            
+
             NSUserNotification *note = [[NSUserNotification alloc] init];
-            note.title = [defaults stringForKey:@"title"];
-            note.subtitle = [defaults stringForKey:@"subtitle"];
-            note.informativeText = [defaults stringForKey:@"informativeText"];
-            
+            (note.title = [defaults stringForKey:@"t"]) || (note.title == [defaults stringForKey:@"-title"]);
+            (note.subtitle = [defaults stringForKey:@"s"]) || (note.subtitle = [defaults stringForKey:@"-subtitle"]);
+            (note.informativeText = [defaults stringForKey:@"m"]) || (note.informativeText = [defaults stringForKey:@"-message"]);
+
             if (!(note.title || note.subtitle || note.informativeText)) {
-                note.title = @"Usage: usernotification";
-                note.informativeText = @"Options: [-identifier <IDENTIFIER>] [-title <TEXT>] [-subtitle TEXT] [-informativeText TEXT]";
+                printHelp();
+                return 0;
             }
-            
+
             [nc deliverNotification:note];
-            
             while (ncDelegate.keepRunning) {
                 [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
             }
         }
     }
     return 0;
+}
+
+void printHelp() {
+    printf("Usage: termnotify [--title <title>] [--subtitle <subtitle>] [--message <text>] [--identifier <identifier>]\n" \
+           "\n" \
+           "Options:\n" \
+           "-i, --identifier NAME        some existing app identifier(default: com.apple.terminal)\n" \
+           "-t, --title TEXT             title text\n" \
+           "-s, --subtitle TEXT          subtitle text\n" \
+           "-m, --message TEXT           informative text\n" \
+           "\n" \
+           );
 }

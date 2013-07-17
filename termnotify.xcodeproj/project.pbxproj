@@ -24,10 +24,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6C87985816BF768400ECA942 /* usernotification */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = usernotification; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C87985816BF768400ECA942 /* termnotify */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = termnotify; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C87985B16BF768400ECA942 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6C87985E16BF768400ECA942 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6C87986116BF768400ECA942 /* usernotification-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "usernotification-Prefix.pch"; sourceTree = "<group>"; };
+		6C87986116BF768400ECA942 /* termnotify-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "termnotify-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +45,7 @@
 		6C87984F16BF768400ECA942 = {
 			isa = PBXGroup;
 			children = (
-				6C87985D16BF768400ECA942 /* usernotification */,
+				6C87985D16BF768400ECA942 /* termnotify */,
 				6C87985A16BF768400ECA942 /* Frameworks */,
 				6C87985916BF768400ECA942 /* Products */,
 			);
@@ -54,7 +54,7 @@
 		6C87985916BF768400ECA942 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6C87985816BF768400ECA942 /* usernotification */,
+				6C87985816BF768400ECA942 /* termnotify */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -67,19 +67,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6C87985D16BF768400ECA942 /* usernotification */ = {
+		6C87985D16BF768400ECA942 /* termnotify */ = {
 			isa = PBXGroup;
 			children = (
 				6C87985E16BF768400ECA942 /* main.m */,
 				6C87986016BF768400ECA942 /* Supporting Files */,
 			);
-			path = usernotification;
+			path = termnotify;
 			sourceTree = "<group>";
 		};
 		6C87986016BF768400ECA942 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6C87986116BF768400ECA942 /* usernotification-Prefix.pch */,
+				6C87986116BF768400ECA942 /* termnotify-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -87,9 +87,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6C87985716BF768400ECA942 /* usernotification */ = {
+		6C87985716BF768400ECA942 /* termnotify */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6C87986616BF768400ECA942 /* Build configuration list for PBXNativeTarget "usernotification" */;
+			buildConfigurationList = 6C87986616BF768400ECA942 /* Build configuration list for PBXNativeTarget "termnotify" */;
 			buildPhases = (
 				6C87985416BF768400ECA942 /* Sources */,
 				6C87985516BF768400ECA942 /* Frameworks */,
@@ -99,9 +99,9 @@
 			);
 			dependencies = (
 			);
-			name = usernotification;
-			productName = usernotification;
-			productReference = 6C87985816BF768400ECA942 /* usernotification */;
+			name = termnotify;
+			productName = termnotify;
+			productReference = 6C87985816BF768400ECA942 /* termnotify */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -113,7 +113,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Norio Nomura";
 			};
-			buildConfigurationList = 6C87985316BF768400ECA942 /* Build configuration list for PBXProject "usernotification" */;
+			buildConfigurationList = 6C87985316BF768400ECA942 /* Build configuration list for PBXProject "termnotify" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -125,7 +125,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6C87985716BF768400ECA942 /* usernotification */,
+				6C87985716BF768400ECA942 /* termnotify */,
 			);
 		};
 /* End PBXProject section */
@@ -205,7 +205,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "usernotification/usernotification-Prefix.pch";
+				GCC_PREFIX_HEADER = "termnotify/termnotify-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -214,7 +214,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "usernotification/usernotification-Prefix.pch";
+				GCC_PREFIX_HEADER = "termnotify/termnotify-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -222,7 +222,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6C87985316BF768400ECA942 /* Build configuration list for PBXProject "usernotification" */ = {
+		6C87985316BF768400ECA942 /* Build configuration list for PBXProject "termnotify" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6C87986416BF768400ECA942 /* Debug */,
@@ -231,7 +231,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6C87986616BF768400ECA942 /* Build configuration list for PBXNativeTarget "usernotification" */ = {
+		6C87986616BF768400ECA942 /* Build configuration list for PBXNativeTarget "termnotify" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6C87986716BF768400ECA942 /* Debug */,
