@@ -1,6 +1,6 @@
 termnotify
 ================
-Demonstrate how to post NStermnotify from CLI(without Application Bundle) on OS X 10.8.
+Demonstrate how to post NSUserNotification from CLI(without Application Bundle) on OS X 10.8.
 
 Install
 -------
@@ -16,7 +16,7 @@ Or use
 
 Usage
 -----
-
+	
 	Usage: termnotify  [--title <title>] [--subtitle <subtitle>] [--message <text>] [--identifier <identifier>]
 	
 	Options:
@@ -24,6 +24,10 @@ Usage
 	   -t, --title TEXT             title text
 	   -s, --subtitle TEXT          subtitle text
 	   -i, --informativeText TEXT   informative text
+*****	  
+Typical usage
+	
+	> make && termnotify -m "Finished"
 
 License
 -------
